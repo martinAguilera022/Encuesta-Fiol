@@ -1,4 +1,4 @@
-import "./NotFound.css";
+import "../styles/Notfound.css";
 import { useNavigate } from "react-router-dom";
 
 function NotFound() {
