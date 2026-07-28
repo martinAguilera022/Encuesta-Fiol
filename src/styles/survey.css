@@ -1,0 +1,704 @@
+.survey-screen {
+	position: relative;
+	width: 100%;
+	height: 100dvh;
+	overflow: hidden;
+	background: #000;
+	color: #fff;
+} /* ========================================= WELCOME SCREEN ========================================= */
+.survey-welcome {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #000;
+} /* ========================================= BACKGROUND ========================================= */
+.background-clutch {
+	position: absolute;
+
+	left: 50%;
+	bottom: 0;
+
+	transform: translateX(-50%);
+
+	width: 140%;
+	height: auto;
+
+	object-fit: contain;
+
+	pointer-events: none;
+
+	z-index: 1;
+}
+.background-overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	background: linear-gradient(
+		to bottom,
+		#000 0%,
+		rgba(0, 0, 0, 8) 64%,
+		rgba(0, 0, 0, 0.1) 97%,
+		rgba(0, 0, 0, 0.1) 69%,
+		rgba(0, 0, 0, 0.1) 43%,
+		transparent 100%
+	);
+} /* ========================================= CONTENT ========================================= */
+.survey-content {
+	position: relative;
+	z-index: 3;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 40px 50px 140px;
+	max-height: 100dvh;
+}
+/* ========================================= BRAND ========================================= */
+.survey-content .brand-logo {
+	display: block;
+	width: 200px;
+	height: auto;
+	margin: 0;
+}
+.survey-header {
+	margin-top: 20%;
+}
+.survey-footer {
+	margin-top: auto;
+	gap: 40px;
+	display: flex;
+	flex-direction: column;
+} /* ========================================= TITLE ========================================= */
+.survey-content h1 {
+	margin: 0;
+	font-size: 48px;
+	line-height: 1.05;
+	font-weight: 700;
+}
+.survey-content h1 span {
+	display: block;
+	color: #ffd400;
+} /* ========================================= DESCRIPTION ========================================= */
+.survey-description {
+	width: 220px;
+	margin-top: 34px;
+	color: white;
+	font-size: 17px;
+	line-height: 1.5;
+} /* ========================================= TIME ========================================= */
+.survey-time {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-bottom: 24px;
+	color: white;
+	font-size: 17px;
+}
+.survey-time svg {
+	width: 22px;
+	height: 22px;
+	flex-shrink: 0;
+	color: white;
+}
+.survey-time strong {
+	color: white;
+} /* ========================================= BUTTON ========================================= */
+.primary-button {
+	width: 100%;
+	height: 58px;
+	border: none;
+	border-radius: 12px;
+	background: #ffd400;
+	color: #000;
+	font-size: 18px;
+	font-weight: 700;
+	cursor: pointer;
+	transition:
+		background 0.25s ease,
+		transform 0.2s ease,
+		opacity 0.2s ease;
+}
+.primary-button:hover:not(:disabled) {
+	background: #ffe54d;
+}
+.primary-button:active:not(:disabled) {
+	transform: scale(0.98);
+}
+.primary-button:disabled {
+	background: #4b4b4b;
+	color: #9e9e9e;
+	cursor: not-allowed;
+	opacity: 0.8;
+}
+.rating-icon {
+	width: 46px;
+	height: 46px;
+	object-fit: contain;
+	filter: brightness(0) invert(1);
+	transition: filter 0.25s ease;
+}
+.rating-option.selected .rating-icon {
+	filter: none;
+} /* ========================================= QUESTIONS CONTAINER ========================================= */
+.survey-container {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding: 28px;
+} /* ========================================= TOPBAR ========================================= */
+.survey-topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 25px;
+} /* ========================================= PROGRESS ========================================= */
+.progress-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.progress-segments {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	flex: 1;
+}
+.progress-segment {
+	flex: 1;
+	height: 6px;
+	background: #686868;
+	border-radius: 999px;
+	transition: background 0.3s ease;
+}
+.progress-segment.active {
+	background: #ffd400;
+}
+.progress-number {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 42px;
+	height: 32px;
+	padding: 0 7px;
+	border: 1px solid #292929;
+	border-radius: 4px;
+	background: #111111;
+	color: #ffd400;
+	font-size: 11px;
+	font-weight: 700;
+}
+.progress-number {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 42px;
+	height: 32px;
+	padding: 0 7px;
+	border: 1px solid #292929;
+	border-radius: 4px;
+	background: #111111;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 700;
+}
+.current-number {
+	color: #ffd400;
+} /* ========================================= QUESTION ========================================= */ /* ========================================= QUESTION HEADER ========================================= */
+.survey-question-header h1 {
+	margin: 0;
+	font-size: 35px;
+	font-weight: 700;
+	line-height: 1.08;
+	color: #fff;
+}
+.survey-question-header p {
+	width: 250px;
+	margin-top: 20px;
+	color: #7b7b7b;
+	font-size: 15px;
+	line-height: 1.55;
+} /* ========================================= IDENTITY ========================================= */
+.identity-options {
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+	margin-top: 5px;
+}
+.identity-card {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	width: 100%;
+	min-height: 108px;
+	padding: 18px;
+	border: 1px solid #ffd400;
+	border-radius: 14px;
+	background: #050505;
+	text-align: left;
+	cursor: pointer;
+	transition: all 0.25s ease;
+}
+.identity-card:hover {
+	transform: translateY(-2px);
+}
+.identity-card.selected {
+	background: #111;
+	border-color: #ffd400;
+	box-shadow: 0 0 18px rgba(255, 212, 0, 0.18);
+}
+.identity-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background: #ffd400;
+	color: #000;
+	font-size: 26px;
+}
+.identity-content {
+	flex: 1;
+}
+.identity-content h3 {
+	margin: 0;
+	color: #fff;
+	font-size: 17x;
+	font-weight: 700;
+	line-height: 1.25;
+}
+.identity-content p {
+	margin-top: 8px;
+	color: #7a7a7a;
+	font-size: 14px;
+	line-height: 1.45;
+} /* ========================================= INPUT ========================================= */
+.company-input {
+	width: 100%;
+	margin-top: 24px;
+	padding: 16px 18px;
+	border: 1px solid #3b3b3b;
+	border-radius: 12px;
+	background: #111;
+	color: #fff;
+	font-size: 15px;
+	transition: 0.2s;
+}
+.company-input::placeholder {
+	color: #6f6f6f;
+}
+.company-input:focus {
+	outline: none;
+	border-color: #ffd400;
+} /* ========================================= RATING ========================================= */
+.rating-options {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 10px;
+	margin-top: 30px;
+}
+.rating-option {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	min-height: 80px;
+	border: 1px solid #333;
+	border-radius: 10px;
+	background: #111;
+	cursor: pointer;
+}
+.rating-option.selected {
+	border-color: #ffd400;
+	background: #1a1a00;
+}
+.rating-emoji {
+	font-size: 28px;
+}
+.rating-label {
+	color: #aaa;
+	font-size: 12px;
+	text-align: center;
+}
+.rating-wrapper {
+	width: 100%;
+	max-width: 520px;
+	margin: 40px auto;
+}
+.rating-options {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+}
+.rating-option {
+	width: 72px;
+	height: 72px;
+	border: 1px solid #666;
+	background: #111;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: 0.25s;
+	padding: 0;
+}
+.rating-option:hover {
+	border-color: #fff;
+	transform: translateY(-2px);
+}
+.rating-option.selected {
+	background: #ffd400;
+	border-color: #ffd400;
+	color: #111;
+}
+.rating-emoji {
+	font-size: 42px;
+	line-height: 1;
+}
+.rating-scale {
+	margin-top: 14px;
+	display: flex;
+	justify-content: space-between;
+	color: #fff;
+	font-size: 15px;
+} /* ========================================= TEXTAREA ========================================= */
+.textarea-wrapper {
+	position: relative;
+	margin-top: 30px;
+}
+.textarea-wrapper textarea {
+	width: 100%;
+	min-height: 180px;
+	padding: 15px;
+	resize: none;
+	border: 1px solid #333;
+	border-radius: 10px;
+	background: #111;
+	color: white;
+	font-size: 15px;
+}
+.textarea-wrapper textarea:focus {
+	outline: none;
+	border-color: #ffd400;
+}
+.textarea-wrapper span {
+	position: absolute;
+	right: 12px;
+	bottom: 10px;
+	color: #777;
+	font-size: 12px;
+} /* ========================================= NAVIGATION ========================================= */
+.survey-navigation {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: auto;
+	padding-top: 36px;
+	justify-content: space-between;
+}
+.secondary-button {
+	height: 48px;
+	padding: 0 22px;
+	border: 1px solid #333;
+	border-radius: 10px;
+	background: transparent;
+	color: #aaa;
+	font-size: 15px;
+	cursor: pointer;
+}
+.survey-navigation .primary-button {
+	width: 120px;
+	height: 48px;
+} /* ========================================= DESKTOP ========================================= */
+@media (min-width: 768px) {
+	.survey-screen {
+		display: flex;
+		justify-content: center;
+		margin: auto;
+		border-radius: 16px;
+		overflow: hidden;
+	}
+}
+@media (max-width: 360px) {
+	.survey-content {
+		padding: 18px 18px 90px;
+	}
+	.survey-content h1 {
+		font-size: 55px;
+	}
+	.survey-question-header h1 {
+		font-size: 26px;
+	}
+	.rating-scale {
+		font-size: 13px;
+	}
+	.identity-card {
+		min-height: 92px;
+	}
+	.brand-logo {
+		margin: 0;
+	}
+}
+@media (min-width: 1200px) {
+	/* =========================================
+	   PANTALLA COMPLETA
+	========================================= */
+
+	.survey-screen {
+		width: 100%;
+		max-width: none;
+		height: 100vh;
+
+		border-radius: 0;
+	}
+
+	/* =========================================
+	   WELCOME DESKTOP
+	========================================= */
+
+	.survey-welcome {
+		position: relative;
+
+		width: 100%;
+		height: 100%;
+
+		display: block;
+
+		overflow: hidden;
+	}
+
+	/* =========================================
+	   IMAGEN A LA DERECHA
+	========================================= */
+
+	.background-clutch {
+		position: absolute;
+
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: auto;
+
+		width: 58%;
+		height: 100%;
+
+		transform: none;
+
+		object-fit: cover;
+		object-position: center;
+
+		z-index: 1;
+	}
+
+	/* =========================================
+	   OVERLAY DESKTOP
+	========================================= */
+
+	.background-overlay {
+		position: absolute;
+		inset: 0;
+
+		z-index: 2;
+
+		background: linear-gradient(
+			to right,
+			#000 0%,
+			#000 38%,
+			rgba(0, 0, 0, 0.95) 48%,
+			rgba(0, 0, 0, 0.35) 70%,
+			rgba(0, 0, 0, 0) 100%
+		);
+	}
+
+	/* =========================================
+	   CONTENIDO A LA IZQUIERDA
+	========================================= */
+
+	.survey-content {
+		position: relative;
+
+		z-index: 3;
+
+		width: 42%;
+		height: 100%;
+
+		padding: 70px;
+
+		display: flex;
+		flex-direction: column;
+
+		justify-content: space-between;
+
+		background: #000;
+	}
+
+	.survey-content h1 {
+		font-size: 60px;
+	}
+
+	.survey-description {
+		width: 340px;
+		font-size: 18px;
+	}
+
+	.primary-button {
+		width: 250px;
+	}
+
+	.brand-logo {
+		width: 180px;
+		margin: 0;
+	}
+	.survey-questions-screen {
+		width: 90%;
+	}
+	.identity-options {
+		display: flex;
+		flex-direction: row;
+		gap: 22px;
+		margin-top: 5px;
+	}
+	.rating-icon {
+		width: 80px;
+		height: 80px;
+		object-fit: contain;
+		filter: brightness(0) invert(1);
+		transition: filter 0.25s ease;
+	}
+	.rating-option {
+		width: 120px;
+		height: 120px;
+	}
+	.rating-wrapper {
+		width: 100%;
+		max-width: 45%;
+		margin: 0;
+	}
+} /* ========================================= MOBILE PEQUEÑO ========================================= */
+@media (max-width: 360px) {
+	.survey-content h1 {
+		font-size: 40px;
+	}
+	.survey-description {
+		font-size: 14px;
+		width: 190px;
+	}
+	.survey-time {
+		font-size: 14px;
+	}
+	.survey-question-header h1 {
+		font-size: 24px;
+	}
+	.survey-question-header p {
+		font-size: 13px;
+		width: 100%;
+	}
+	.identity-content h3 {
+		font-size: 15px;
+	}
+	.identity-content p {
+		font-size: 12px;
+	}
+	.primary-button {
+		font-size: 16px;
+	}
+	.survey-content .brand-logo {
+		width: 13%;
+		margin: 0;
+	}
+} /* ========================================= CELULARES (361px - 767px) ========================================= */
+@media (min-width: 361px) and (max-width: 767px) {
+	.survey-content h1 {
+		font-size: 40px;
+	}
+	.survey-description {
+		font-size: 18px;
+	}
+	.survey-time {
+		font-size: 16px;
+	}
+	.survey-question-header h1 {
+		font-size: 30px;
+	}
+	.survey-question-header p {
+		font-size: 15px;
+		width: 100%;
+	}
+	.primary-button {
+		font-size: 17px;
+	}
+	.brand-logo {
+		margin: 0;
+	}
+} /* ========================================= TABLETS (768px - 1023px) ========================================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.survey-content h1 {
+		font-size: 46px;
+	}
+	.survey-description {
+		font-size: 17px;
+		width: 280px;
+	}
+	.survey-question-header h1 {
+		font-size: 34px;
+	}
+	.survey-question-header p {
+		font-size: 16px;
+		max-width: 420px;
+	}
+	.survey-content .brand-logo {
+		width: 15%;
+		margin: 0;
+	}
+} /* ========================================= NOTEBOOKS (1024px - 1439px) ========================================= */
+@media (min-width: 1024px) and (max-width: 1439px) {
+	.survey-content h1 {
+		font-size: 52px;
+	}
+	.survey-description {
+		font-size: 18px;
+		width: 320px;
+	}
+	.survey-question-header h1 {
+		font-size: 38px;
+	}
+	.survey-question-header p {
+		font-size: 17px;
+		max-width: 500px;
+	}
+	.survey-content .brand-logo {
+		width: 15%;
+		margin: 0;
+	}
+} /* ========================================= DESKTOP GRANDE (1440px+) ========================================= */
+@media (min-width: 1440px) {
+	.survey-content h1 {
+		font-size: 60px;
+	}
+	.survey-description {
+		font-size: 20px;
+		width: 360px;
+	}
+	.survey-question-header h1 {
+		font-size: 46px;
+	}
+	.survey-question-header p {
+		font-size: 18px;
+		max-width: 600px;
+	}
+	.primary-button {
+		font-size: 19px;
+	}
+	.survey-content .brand-logo {
+		width: 15%;
+		margin: 0;
+	}
+}

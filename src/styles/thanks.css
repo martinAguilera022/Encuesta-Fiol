@@ -1,0 +1,367 @@
+/* =========================================
+   THANKS SCREEN
+========================================= */
+
+.thanks-screen {
+	position: relative;
+
+	width: 100%;
+	height: 100dvh;
+
+	overflow: hidden;
+
+	color: #fff;
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.thanks-content {
+	position: relative;
+
+	z-index: 2;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	height: 100%;
+
+	padding: 20% 28px 0;
+
+	text-align: center;
+}
+
+/* =========================================
+   CHECK ICON
+========================================= */
+
+.thanks-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 140px;
+	height: 140px;
+
+	margin-bottom: 25px;
+
+	border: 7px solid #ffd400;
+	border-radius: 50%;
+}
+
+.checkmark {
+	width: 65px;
+	height: 35px;
+
+	border-left: 8px solid #ffd400;
+	border-bottom: 8px solid #ffd400;
+
+	transform: rotate(-45deg);
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.thanks-content h1 {
+	margin: 0;
+
+	font-size: 40px;
+	line-height: 1.05;
+	font-weight: 700;
+}
+
+.thanks-content h1 span {
+	display: block;
+
+	color: #ffd400;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.thanks-content p {
+	width: 300px;
+
+	margin-top: 36px;
+
+	color: #a09e9e;
+
+	font-size: 22px;
+	line-height: 1.4;
+}
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.thanks-image {
+	position: absolute;
+
+	left: 0;
+	bottom: 0;
+
+	z-index: 1;
+
+	width: 100%;
+	height: 40%;
+
+	overflow: hidden;
+}
+
+.thanks-image > img {
+	display: block;
+
+	width: 100%;
+	height: 100%;
+
+	object-fit: cover;
+
+	object-position: center;
+}
+.thanks-image::before {
+	content: "";
+
+	position: absolute;
+
+	top: 0;
+	left: 0;
+
+	z-index: 2;
+
+	width: 100%;
+	height: 45%;
+
+	background: linear-gradient(
+		to bottom,
+		#000 0%,
+		rgba(0, 0, 0, 0.85) 25%,
+		rgba(0, 0, 0, 0.45) 60%,
+		transparent 100%
+	);
+
+	pointer-events: none;
+}
+.thanks-image > img {
+	position: relative;
+
+	z-index: 1;
+
+	display: block;
+
+	width: 100%;
+	height: 100%;
+
+	object-fit: cover;
+
+	object-position: center;
+}
+.thanks-image::before {
+	content: "";
+
+	position: absolute;
+
+	inset: 0;
+
+	z-index: 2;
+
+	background: linear-gradient(
+		to bottom,
+		#000 0%,
+		rgba(0, 0, 0, 0.95) 15%,
+		rgba(0, 0, 0, 0.75) 35%,
+		rgba(0, 0, 0, 0.35) 60%,
+		transparent 100%
+	);
+}
+/* =========================================
+   LOGO
+========================================= */
+
+.thanks-logo {
+	position: absolute;
+
+	left: 50%;
+	bottom: 40px;
+
+	z-index: 3;
+
+	width: 170px;
+
+	padding: 4px 8px;
+
+	transform: translateX(-50%);
+}
+
+.thanks-logo img {
+	display: block;
+
+	width: 100%;
+	height: auto;
+}
+/* =========================================
+   EXIT BUTTON
+========================================= */
+
+.thanks-exit-button {
+	width: 180px;
+	height: 50px;
+	margin-top: 35px;
+
+	border: 1px solid #444;
+	border-radius: 10px;
+
+	background: transparent;
+	color: #fff;
+
+	font-size: 16px;
+	font-weight: 600;
+
+	cursor: pointer;
+
+	transition:
+		background 0.25s ease,
+		border-color 0.25s ease,
+		transform 0.2s ease;
+}
+
+.thanks-exit-button:hover {
+	background: #ffd400;
+	border-color: #ffd400;
+	color: #000;
+}
+
+.thanks-exit-button:active {
+	transform: scale(0.97);
+}
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 768px) {
+	.thanks-screen {
+		max-width: 420px;
+
+		margin: auto;
+
+		border-radius: 16px;
+
+		overflow: hidden;
+	}
+}
+/* =========================================
+   DESKTOP - IMAGEN A LA DERECHA
+========================================= */
+
+@media (min-width: 1200px) {
+	.thanks-screen {
+		position: relative;
+
+		width: 100%;
+		max-width: none;
+
+		height: 100vh;
+
+		margin: 0;
+
+		border-radius: 0;
+
+		overflow: hidden;
+
+		background: #000;
+	}
+
+	/* =========================================
+	   CONTENIDO
+	========================================= */
+
+	.thanks-content {
+		position: relative;
+
+		z-index: 3;
+
+		display: flex;
+		flex-direction: column;
+		align-items: flex-center;
+
+		width: 42%;
+		height: 100%;
+
+		padding: 70px;
+		height: 100%;
+	}
+	.thanks-content p {
+		text-align: center;
+	}
+	/* =========================================
+	   IMAGEN DERECHA
+	========================================= */
+
+	.thanks-image {
+		position: absolute;
+
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: auto;
+
+		width: 58%;
+		height: 100%;
+
+		z-index: 1;
+
+		overflow: hidden;
+	}
+
+	.thanks-image > img {
+		position: relative;
+
+		z-index: 1;
+
+		display: block;
+
+		width: 100%;
+		height: 100%;
+
+		object-fit: cover;
+
+		object-position: center;
+	}
+
+	/* =========================================
+	   DEGRADADO
+	========================================= */
+
+	.thanks-image::before {
+		content: "";
+
+		position: absolute;
+
+		inset: 0;
+
+		z-index: 2;
+		height: 100dvh;
+		background: linear-gradient(
+			to right,
+			#000 0%,
+			rgba(0, 0, 0, 0.85) 10%,
+			rgba(0, 0, 0, 0.45) 30%,
+			rgba(0, 0, 0, 0.1) 60%,
+			transparent 100%
+		);
+
+		pointer-events: none;
+	}
+	.thanks-logo {
+		width: 300px;
+
+		transform: translateX(26%);
+	}
+	/* =========================================
+	   LOGO
+	========================================= */
+}

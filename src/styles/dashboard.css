@@ -1,0 +1,1024 @@
+.dashboard {
+	min-height: 100vh;
+	background: #333;
+	color: white;
+	font-family: Arial, sans-serif;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	width: 250px;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+
+	padding: 30px 20px;
+
+	box-sizing: border-box;
+
+	background-color: #111;
+
+	z-index: 1000;
+}
+.brand-logo {
+	display: block;
+
+	width: 150px;
+	height: auto;
+
+	margin: 0 auto 50px;
+}
+.sidebar nav {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.sidebar nav a {
+	display: block;
+
+	padding: 10px;
+
+	color: white;
+
+	font-size: 18px;
+
+	text-decoration: none;
+
+	border-radius: 5px;
+
+	transition:
+		background-color 0.25s ease,
+		color 0.25s ease,
+		transform 0.2s ease;
+}
+
+.sidebar nav a:hover {
+	background-color: rgba(255, 255, 255, 0.12);
+
+	transform: translateX(4px);
+}
+
+.sidebar nav a.active {
+	font-weight: bold;
+
+	background-color: white;
+	color: black;
+
+	transform: translateX(0);
+}
+
+.sidebar nav a.active:hover {
+	background-color: #f2f2f2;
+
+	transform: translateX(2px);
+}
+
+.sidebar button {
+	margin-top: auto;
+
+	width: 100%;
+	padding: 12px 15px;
+
+	border: none;
+	border-radius: 8px;
+
+	background-color: #fff;
+	color: #111;
+
+	font-size: 14px;
+	font-weight: 600;
+
+	cursor: pointer;
+
+	transition: 0.2s ease;
+}
+
+.sidebar button:hover {
+	background-color: #ddd;
+}
+
+.brand-logo {
+	display: block;
+
+	width: 150px;
+	height: auto;
+}
+.sidebar nav {
+	flex-direction: column;
+	gap: 10px;
+	display: flex;
+}
+.sidebar nav a {
+	display: block;
+	color: white;
+	padding: 10px;
+	font-size: 18px;
+	cursor: pointer;
+	text-decoration: none;
+
+	border-radius: 5px;
+
+	transition:
+		background-color 0.25s ease,
+		color 0.25s ease,
+		transform 0.2s ease;
+}
+
+/* HOVER */
+
+.sidebar nav a:hover {
+	background-color: rgba(255, 255, 255, 0.12);
+	transform: translateX(4px);
+}
+
+/* ELEMENTO ACTIVO */
+
+.sidebar nav .active {
+	font-weight: bold;
+	background-color: white;
+	color: black;
+
+	transform: translateX(0);
+
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease,
+		transform 0.3s ease;
+}
+
+/* HOVER DEL ACTIVO */
+
+.sidebar nav .active:hover {
+	background-color: #f2f2f2;
+	transform: translateX(2px);
+}
+
+/* BOTÓN CERRAR SESIÓN */
+
+.sidebar button {
+	background: none;
+	color: white;
+	border: none;
+	border-top: 3px solid white;
+
+	padding: 15px;
+	font-size: 16px;
+
+	cursor: pointer;
+
+	transition:
+		background-color 0.25s ease,
+		color 0.25s ease;
+}
+
+.sidebar button:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+/* CONTENIDO */
+
+.dashboard-content {
+	margin-left: 250px;
+
+	width: calc(100% - 250px);
+
+	min-height: 100vh;
+
+	padding: 25px;
+
+	box-sizing: border-box;
+}
+
+.stats {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.card {
+	background: #000;
+	padding: 25px;
+	height: 160px;
+	border-radius: 8px;
+}
+
+.card span {
+	display: block;
+	font-size: 18px;
+}
+
+.card strong {
+	font-size: 50px;
+	display: block;
+	margin-top: 25px;
+}
+
+.yellow-text {
+	color: #ffff00;
+}
+
+/* PANELES */
+
+.analytics {
+	margin-top: 25px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+}
+
+.panel {
+	background: #000;
+	padding: 25px;
+	border-radius: 8px;
+}
+
+.panel h2 {
+	font-size: 28px;
+	margin-bottom: 35px;
+}
+
+/* DONUT */
+
+.chart-container {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+}
+
+.donut {
+	width: 220px;
+	height: 220px;
+	border-radius: 50%;
+
+	background: conic-gradient(
+		#57a900 0 50%,
+		#a8f132 50% 75%,
+		#ffd632 75% 85%,
+		#ff7b18 85% 95%,
+		#ff2020 95%
+	);
+
+	position: relative;
+}
+
+.donut:after {
+	content: "";
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background: #000;
+	border-radius: 50%;
+	top: 60px;
+	left: 60px;
+}
+
+.legend p {
+	display: flex;
+	justify-content: space-between;
+	gap: 40px;
+
+	font-size: 18px;
+}
+
+/* PROMEDIOS */
+
+.average {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	margin-bottom: 15px;
+
+	font-size: 18px;
+}
+
+.average strong {
+	padding: 7px 18px;
+	border-radius: 3px;
+}
+.card .card-info {
+	display: flex;
+	gap: 5px;
+	align-items: center;
+	justify-content: start;
+}
+.green {
+	background: #55a900;
+}
+
+.yellow {
+	background: #ffd632;
+
+	color: #000;
+}
+
+.lime {
+	background: #9cff20;
+
+	color: #000;
+}
+
+.orange {
+	background: #ff721c;
+}
+
+.red {
+	background: #ff2020;
+}
+/* =========================
+   RESPUESTAS
+========================= */
+
+.responses-page {
+	overflow: hidden;
+}
+
+.responses-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 30px;
+}
+
+.responses-header h1 {
+	margin: 0;
+	font-size: 32px;
+}
+
+.responses-header p {
+	margin-top: 5px;
+	font-size: 18px;
+	font-style: italic;
+	color: #d0d0d0;
+}
+
+/* FILTRO */
+
+.filter-container {
+	position: relative;
+}
+
+.filter-button {
+	background: #333;
+	color: white;
+	border: 1px solid #111;
+	padding: 10px 18px;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.filter-options {
+	position: absolute;
+	top: 42px;
+	right: 0;
+	width: 130px;
+	background: #555;
+	border-radius: 0 0 6px 6px;
+	overflow: hidden;
+	z-index: 10;
+}
+
+.filter-options button {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	background: transparent;
+	color: white;
+	text-align: left;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.filter-options button:hover {
+	background: #666;
+}
+
+/* TABLA */
+
+.responses-table {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.responses-row {
+	display: grid;
+
+	/*
+  # 
+  Usuario
+  Fecha
+  1-7
+  Pregunta 8
+  Pregunta 9
+  */
+
+	grid-template-columns:
+		35px
+		190px
+		125px
+		repeat(7, 55px)
+		minmax(150px, 1fr)
+		minmax(150px, 1fr);
+
+	align-items: center;
+	min-width: 1100px;
+	gap: 8px;
+}
+
+/* CABECERA */
+
+.responses-head {
+	background: #050505;
+	color: white;
+	min-height: 55px;
+	padding: 0 14px;
+	border-radius: 7px 7px 0 0;
+	font-weight: bold;
+	text-align: center;
+}
+
+.responses-head span:nth-child(2),
+.responses-head span:nth-child(3) {
+	text-align: left;
+}
+
+/* FILAS */
+
+.response-item {
+	background: #555;
+	margin-top: 2px;
+	min-height: 56px;
+	padding: 0 14px;
+	border-radius: 6px;
+	color: #ddd;
+}
+
+.response-item:hover {
+	background: #606060;
+}
+
+/* FECHA */
+
+.date {
+	font-size: 11px;
+	color: #ddd;
+}
+
+/* EMOJIS */
+
+.answer {
+	width: 34px;
+	height: 34px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-size: 22px;
+	border-radius: 50%;
+}
+
+/* RESPUESTAS TEXTUALES */
+
+.text-answer {
+	font-size: 13px;
+	line-height: 1.3;
+	padding: 5px;
+
+	/* Máximo 2 líneas */
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+
+	/* Ocultar el contenido sobrante */
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	/* Evita que palabras muy largas rompan la tabla */
+	word-break: break-word;
+
+	/* Permite que el contenido respete el ancho del grid */
+	min-width: 0;
+}
+
+/* PAGINACIÓN */
+
+.pagination {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	margin-top: 15px;
+
+	color: #ccc;
+}
+
+.pagination-buttons {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.pagination-buttons button {
+	min-width: 45px;
+	height: 34px;
+
+	border: 1px solid #aaa;
+	background: #444;
+	color: white;
+
+	border-radius: 5px;
+
+	cursor: pointer;
+}
+
+.pagination-buttons button:hover {
+	background: #555;
+}
+
+.pagination-buttons button.selected {
+	background: #ffd600;
+	color: #111;
+	border-color: #ffd600;
+}
+
+.pagination-buttons button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+.answer {
+	width: 38px;
+	height: 38px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.answer img {
+	width: 34px;
+	height: 34px;
+	object-fit: contain;
+}
+/* ICONOS DE LA LEYENDA */
+
+.legend p {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.legend p img {
+	width: 32px;
+	height: 32px;
+	object-fit: contain;
+}
+
+/* ICONOS DE PROMEDIOS */
+
+.average {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.average > span {
+	flex: 1;
+}
+
+.average-icon {
+	width: 35px;
+	height: 35px;
+	object-fit: contain;
+}
+.legend p {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.legend-icon {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	overflow: hidden;
+}
+
+.legend-icon img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+/* COLORES DE CADA VALORACIÓN */
+
+.legend-icon.excellent {
+	background-color: #8bdc3c;
+}
+
+.legend-icon.good {
+	background-color: #a8e63d;
+}
+
+.legend-icon.regular {
+	background-color: #ffd21c;
+}
+
+.legend-icon.bad {
+	background-color: #ff8c00;
+}
+
+.legend-icon.very-bad {
+	background-color: #ef3038;
+}
+
+/* PORCENTAJE */
+
+.legend p b {
+	margin-left: auto;
+}
+/* ==========================================
+   RESPUESTAS - ÍCONOS DE VALORACIÓN
+========================================== */
+
+.answer {
+	width: 38px;
+	height: 38px;
+
+	border-radius: 50%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	overflow: hidden;
+}
+
+/* IMAGEN */
+
+.answer img {
+	width: 100%;
+	height: 100%;
+
+	object-fit: contain;
+}
+
+/* ==========================================
+   COLORES
+========================================== */
+
+.answer.excellent {
+	background-color: #8bdc3c;
+}
+
+.answer.good {
+	background-color: #a8e63d;
+}
+
+.answer.regular {
+	background-color: #ffd21c;
+}
+
+.answer.bad {
+	background-color: #ff8c00;
+}
+
+.answer.very-bad {
+	background-color: #ef3038;
+}
+.average strong {
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-weight: bold;
+	min-width: 35px;
+	text-align: center;
+}
+
+.average strong.very-bad {
+	background-color: #ef3038;
+	color: white;
+}
+
+.average strong.bad {
+	background-color: #ff8c00;
+	color: white;
+}
+
+.average strong.regular {
+	background-color: #ffd21c;
+	color: black;
+}
+
+.average strong.good {
+	background-color: #8bdc3c;
+	color: black;
+}
+
+.average strong.excellent {
+	background-color: #4caf50;
+	color: white;
+}
+
+.average-icon {
+	width: 35px;
+	height: 35px;
+	object-fit: contain;
+}
+.comments-page {
+	padding: 30px;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.comments-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 25px;
+}
+
+.comments-header h1 {
+	margin: 0;
+}
+
+.comments-header p {
+	margin-top: 5px;
+	color: #777;
+}
+
+/* ==========================================
+   BUSCADOR
+========================================== */
+
+.comments-search {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	background: white;
+
+	border: 1px solid #ddd;
+
+	border-radius: 8px;
+
+	padding: 10px 14px;
+
+	width: 280px;
+}
+
+.comments-search input {
+	border: none;
+	outline: none;
+
+	width: 100%;
+
+	font-size: 14px;
+}
+
+/* ==========================================
+   FILTROS
+========================================== */
+
+.comments-filters {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 25px;
+}
+
+.comments-filters button {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+
+	background: white;
+
+	border: 1px solid #ddd;
+
+	padding: 9px 15px;
+
+	border-radius: 7px;
+
+	cursor: pointer;
+
+	transition: all 0.2s ease;
+}
+
+.comments-filters button:hover {
+	background: #f5f5f5;
+}
+
+.comments-filters button.active {
+	background: #111;
+	color: white;
+	border-color: #111;
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.comments-grid {
+	display: grid;
+
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+
+	gap: 20px;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.comment-card {
+	background: white;
+
+	border-radius: 10px;
+
+	padding: 20px;
+
+	border: 1px solid #eee;
+
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* ==========================================
+   USUARIO
+========================================== */
+
+.comment-card-header {
+	margin-bottom: 20px;
+}
+
+.comment-user {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.user-icon {
+	width: 38px;
+	height: 38px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: #f2f2f2;
+
+	border-radius: 50%;
+}
+
+.comment-user strong {
+	display: block;
+	font-size: 14px;
+	color: black;
+}
+
+.comment-user span {
+	display: block;
+
+	font-size: 12px;
+
+	color: #888;
+
+	margin-top: 3px;
+}
+
+/* ==========================================
+   COMENTARIO
+========================================== */
+
+.comment-section {
+	padding: 15px;
+
+	border-radius: 8px;
+
+	margin-top: 12px;
+}
+
+.comment-section.valued {
+	background: #eff9e9;
+}
+
+.comment-section.improvement {
+	background: #fff2e8;
+}
+
+.comment-title {
+	display: flex;
+	align-items: center;
+
+	gap: 8px;
+
+	margin-bottom: 8px;
+	color: black;
+}
+
+.comment-section.valued .comment-icon {
+	color: #5c9e35;
+}
+
+.comment-section.improvement .comment-icon {
+	color: #e47b20;
+}
+
+.comment-section p {
+	margin: 0;
+
+	font-size: 14px;
+
+	line-height: 1.5;
+
+	color: #444;
+}
+.filter-container {
+	position: relative;
+}
+
+.filter-button {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	cursor: pointer;
+}
+
+.arrow {
+	display: inline-block;
+
+	font-size: 10px;
+
+	transition: transform 0.2s ease;
+}
+
+.arrow.open {
+	transform: rotate(180deg);
+}
+
+.filter-options {
+	position: absolute;
+
+	top: calc(100% + 8px);
+	right: 0;
+
+	display: flex;
+	flex-direction: column;
+
+	min-width: 150px;
+
+	background: gray;
+
+	border-radius: 8px;
+
+	padding: 5px;
+
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+	z-index: 100;
+}
+
+.filter-options button {
+	width: 100%;
+
+	padding: 10px 12px;
+
+	background: transparent;
+
+	border: none;
+
+	border-radius: 5px;
+
+	text-align: left;
+
+	cursor: pointer;
+
+	transition:
+		background-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.filter-options button:hover {
+	background-color: #000000;
+	color: #f5d000;
+}
+
+.filter-options button.active {
+	background-color: #f5d000;
+	color: black;
+	font-weight: bold;
+}
