@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import "../styles/dashboard.css";
 
-import Sidebar from "../components/Sidebar";
+import SideBar from "../components/SideBar";
 
 import VeryBadIcon from "../assets/angry.png";
 import BadIcon from "../assets/sad-face.png";
@@ -186,7 +186,7 @@ function Responses() {
       {/* SIDEBAR */}
       {/* ========================================== */}
 
-      <Sidebar />
+      <SideBar />
 
 
       {/* ========================================== */}

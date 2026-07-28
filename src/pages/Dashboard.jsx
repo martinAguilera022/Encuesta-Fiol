@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import "../styles/dashboard.css";
 import Loading from "../components/Loading";
-import Sidebar from "../components/Sidebar";
+import SideBar from "../components/SideBar";
 
 import VeryBadIcon from "../assets/angry.png";
 import BadIcon from "../assets/sad-face.png";
@@ -385,7 +385,7 @@ if (loading) {
       {/* SIDEBAR */}
       {/* ========================================== */}
 
-      <Sidebar />
+      <SideBar />
 
 
       {/* ========================================== */}

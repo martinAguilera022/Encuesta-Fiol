@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import "../styles/dashboard.css";
 
-import Sidebar from "../components/Sidebar";
+import SideBar from "../components/SideBar";
 
 import {
   db,
@@ -159,7 +159,7 @@ function Comments() {
 
       {/* SIDEBAR */}
 
-      <Sidebar />
+      <SideBar />
 
 
       {/* CONTENIDO */}

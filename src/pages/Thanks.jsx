@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import logoFiol from "../assets/Logofiol.png";
+import logoFiol from "../assets/LogoFiol.png";
 import fondoEmbrague from "../assets/Embrague-fondo.png";
 
 import "../styles/thanks.css";
