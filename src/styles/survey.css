@@ -715,6 +715,9 @@
 	.survey-container {
 		padding: 2%;
 	}
+	.survey-navigation {
+		margin: 0;
+	}
 } /* ========================================= DESKTOP GRANDE (1440px+) ========================================= */
 @media (min-width: 1440px) {
 	.survey-content h1 {
