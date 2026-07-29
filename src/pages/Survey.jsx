@@ -21,7 +21,7 @@ import "../styles/survey.css";
 const questions = [
   {
     id: "commercialAttention",
-    question: "¿Cómo calificarías nuestra Atención comercial?",
+    question: "¿Cómo calificarías nuestra atención comercial?",
     type: "rating",
     required: true,
   },
@@ -41,7 +41,7 @@ const questions = [
   },
   {
     id: "technicalAdvice",
-    question: "¿Cómo calificarías el Asesoramiento técnico recibido?",
+    question: "¿Cómo calificarías el asesoramiento técnico recibido?",
     type: "rating",
     required: true,
   },
