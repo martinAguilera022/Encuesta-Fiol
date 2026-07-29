@@ -50,13 +50,14 @@
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	padding: 40px 50px 140px;
+	padding: 24px;
+	box-sizing: border-box;
 	max-height: 100dvh;
 }
 /* ========================================= BRAND ========================================= */
 .survey-content .brand-logo {
 	display: block;
-	width: 200px;
+	width: min(200px, 60%);
 	height: auto;
 	margin: 0;
 }
@@ -71,7 +72,7 @@
 } /* ========================================= TITLE ========================================= */
 .survey-content h1 {
 	margin: 0;
-	font-size: 48px;
+	font-size: clamp(2.2rem, 9vw, 48px);
 	line-height: 1.05;
 	font-weight: 700;
 }
@@ -90,7 +91,7 @@
 	display: flex;
 	align-items: center;
 	gap: 14px;
-	margin-bottom: 24px;
+	margin-bottom: 24px;	
 	color: white;
 	font-size: 17px;
 }
@@ -420,18 +421,6 @@
 .survey-container {
 	padding: 5%;
 } /* ========================================= DESKTOP ========================================= */
-@media (min-width: 768px) {
-	.survey-screen {
-		display: flex;
-		justify-content: center;
-		margin: auto;
-		border-radius: 16px;
-		overflow: hidden;
-	}
-	.surver-container {
-		padding: 2%;
-	}
-}
 @media (max-width: 360px) {
 	.survey-content {
 		padding: 18px 18px 90px;
@@ -455,7 +444,140 @@
 	.surver-container {
 		padding: 2%;
 	}
+	.survey-content h1 {
+		font-size: 40px;
+	}
+	.survey-description {
+		font-size: 14px;
+		width: 190px;
+	}
+	.survey-time {
+		font-size: 14px;
+	}
+	.survey-question-header h1 {
+		font-size: 24px;
+	}
+	.survey-question-header p {
+		font-size: 13px;
+		width: 100%;
+	}
+	.identity-content h3 {
+		font-size: 15px;
+	}
+	.identity-content p {
+		font-size: 12px;
+	}
+	.primary-button {
+		font-size: 16px;
+	}
+	.survey-content .brand-logo {
+		width: 56%;
+		margin: 0;
+	}
+	.survey-container {
+		padding: 2%;
+	}
+	.survey-screen {
+		min-height: 100dvh;
+		overflow-y: auto;
+	}
 }
+@media (min-width: 361px) and (max-width: 767px) {
+	.survey-content h1 {
+		font-size: 40px;
+	}
+	.survey-description {
+		font-size: 18px;
+	}
+	.survey-time {
+		font-size: 16px;
+	}
+	.survey-question-header h1 {
+		font-size: 30px;
+	}
+	.survey-question-header p {
+		font-size: 15px;
+		width: 100%;
+	}
+	.primary-button {
+		font-size: 17px;
+	}
+	.brand-logo {
+		margin: 0;
+	}
+	.surver-container {
+		padding: 2%;
+	}
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+	.survey-content h1 {
+		font-size: 46px;
+	}
+	.survey-description {
+		font-size: 17px;
+		width: 280px;
+	}
+	.survey-question-header h1 {
+		font-size: 34px;
+	}
+	.survey-question-header p {
+		font-size: 16px;
+		max-width: 420px;
+	}
+	.survey-content .brand-logo {
+		width: 50%;
+		margin: 0;
+	}
+	.survey-question-header p {
+		width: 50%;
+	}
+	.survey-screen {
+		padding: 2%;
+	}
+	.survey-screen {
+		display: flex;
+		justify-content: center;
+		margin: auto;
+		border-radius: 16px;
+		overflow: hidden;
+	}
+	.surver-container {
+		padding: 2%;
+	}
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+	.survey-content h1 {
+		font-size: 52px;
+	}
+	.survey-description {
+		font-size: 18px;
+		width: 320px;
+	}
+	.surver-container {
+		padding: 2%;
+	}
+	.survey-question-header h1 {
+		font-size: 38px;
+	}
+	.survey-question-header p {
+		font-size: 17px;
+		max-width: 500px;
+	}
+	.survey-content .brand-logo {
+		width: 50%;
+		margin: 0;
+	}
+	.survey-question-header p {
+		width: 50%;
+	}
+	.survey-container {
+		padding: 2%;
+	}
+	.survey-navigation {
+		margin: 0;
+	}
+}
+
 @media (min-width: 1200px) {
 	/* =========================================
 	   PANTALLA COMPLETA
@@ -595,130 +717,10 @@
 		padding: 2%;
 	}
 } /* ========================================= MOBILE PEQUEÑO ========================================= */
-@media (max-width: 360px) {
-	.survey-content h1 {
-		font-size: 40px;
-	}
-	.survey-description {
-		font-size: 14px;
-		width: 190px;
-	}
-	.survey-time {
-		font-size: 14px;
-	}
-	.survey-question-header h1 {
-		font-size: 24px;
-	}
-	.survey-question-header p {
-		font-size: 13px;
-		width: 100%;
-	}
-	.identity-content h3 {
-		font-size: 15px;
-	}
-	.identity-content p {
-		font-size: 12px;
-	}
-	.primary-button {
-		font-size: 16px;
-	}
-	.survey-content .brand-logo {
-		width: 56%;
-		margin: 0;
-	}
-	.survey-container {
-		padding: 2%;
-	}
-	.survey-screen {
-		min-height: 100dvh;
-		overflow-y: auto;
-	}
-} /* ========================================= CELULARES (361px - 767px) ========================================= */
-@media (min-width: 361px) and (max-width: 767px) {
-	.survey-content h1 {
-		font-size: 40px;
-	}
-	.survey-description {
-		font-size: 18px;
-	}
-	.survey-time {
-		font-size: 16px;
-	}
-	.survey-question-header h1 {
-		font-size: 30px;
-	}
-	.survey-question-header p {
-		font-size: 15px;
-		width: 100%;
-	}
-	.primary-button {
-		font-size: 17px;
-	}
-	.brand-logo {
-		margin: 0;
-	}
-	.surver-container {
-		padding: 2%;
-	}
-} /* ========================================= TABLETS (768px - 1023px) ========================================= */
-@media (min-width: 768px) and (max-width: 1023px) {
-	.survey-content h1 {
-		font-size: 46px;
-	}
-	.survey-description {
-		font-size: 17px;
-		width: 280px;
-	}
-	.survey-question-header h1 {
-		font-size: 34px;
-	}
-	.survey-question-header p {
-		font-size: 16px;
-		max-width: 420px;
-	}
-	.survey-content .brand-logo {
-		width: 50%;
-		margin: 0;
-	}
-	.survey-question-header p {
-		width: 50%;
-	}
-	.survey-screen {
-		padding: 2%;
-	}
-} /* ========================================= NOTEBOOKS (1024px - 1439px) ========================================= */
-@media (min-width: 1024px) and (max-width: 1439px) {
-	.survey-content h1 {
-		font-size: 52px;
-	}
-	.survey-description {
-		font-size: 18px;
-		width: 320px;
-	}
-	.surver-container {
-		padding: 2%;
-	}
-	.survey-question-header h1 {
-		font-size: 38px;
-	}
-	.survey-question-header p {
-		font-size: 17px;
-		max-width: 500px;
-	}
-	.survey-content .brand-logo {
-		width: 50%;
-		margin: 0;
-	}
-	.survey-question-header p {
-		width: 50%;
-	}
-	.survey-container {
-		padding: 2%;
-	}
-	.survey-navigation {
-		margin: 0;
-	}
-} /* ========================================= DESKTOP GRANDE (1440px+) ========================================= */
+/* ========================================= CELULARES (361px - 767px) ========================================= */
+/* ========================================= TABLETS (768px - 1023px) ========================================= */
+/* ========================================= NOTEBOOKS (1024px - 1439px) ========================================= */
+/* ========================================= DESKTOP GRANDE (1440px+) ========================================= */
 @media (min-width: 1440px) {
 	.survey-content h1 {
 		font-size: 60px;
@@ -785,4 +787,10 @@
 	to {
 		transform: rotate(360deg);
 	}
+}
+.survey-screen {
+	width: 100%;
+
+	height: 100vh;
+	border-radius: 0;
 }

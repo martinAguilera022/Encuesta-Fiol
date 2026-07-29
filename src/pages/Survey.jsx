@@ -24,6 +24,8 @@ const questions = [
     question: "¿Cómo calificarías nuestra atención comercial?",
     type: "rating",
     required: true,
+     minLabel: "Muy mala",
+  maxLabel: "Excelente",
   },
   {
     id: "deliveryTimes",
@@ -31,6 +33,8 @@ const questions = [
       "¿Qué tan conforme estás con el cumplimiento de plazos de entrega?",
     type: "rating",
     required: true,
+     minLabel: "Muy mala",
+  maxLabel: "Excelente",
   },
   {
     id: "productAvailability",
@@ -38,12 +42,16 @@ const questions = [
       "¿Qué tan conforme estás con la disponibilidad y alternativa de productos?",
     type: "rating",
     required: true,
+     minLabel: "Muy mala",
+  maxLabel: "Excelente",
   },
   {
     id: "technicalAdvice",
     question: "¿Cómo calificarías el asesoramiento técnico recibido?",
     type: "rating",
     required: true,
+     minLabel: "Muy mala",
+  maxLabel: "Excelente",
   },
   {
     id: "claimsResolution",
@@ -51,6 +59,17 @@ const questions = [
       "¿Cuán conforme estás con relación a la resolución de reclamos?",
     type: "rating",
     required: true,
+     minLabel: "Muy mala",
+  maxLabel: "Excelente",
+  },
+   {
+    id: "repurchaseProbability",
+    question:
+      "Pensando en tu próxima compra de repuestos ¿qué tan probable es que vuelvas a elegirnos?",
+    type: "rating",
+    required: true,
+    minLabel: "Muy baja",
+  maxLabel: "Muy alta",
   },
   {
     id: "overallExperience",
@@ -58,19 +77,16 @@ const questions = [
       "¿Cómo calificarías tu experiencia completa con Embragues Fiol?",
     type: "rating",
     required: true,
+     minLabel: "Muy mala",
+  maxLabel: "Excelente",
   },
-  {
-    id: "repurchaseProbability",
-    question:
-      "Pensando en tu próxima compra de repuestos ¿qué tan probable es que vuelvas a elegirnos?",
-    type: "rating",
-    required: true,
-  },
+ 
   {
     id: "mostValued",
     question: "¿Qué es lo que más valoras de Embragues Fiol?",
     type: "text",
     required: false,
+    
   },
   {
     id: "improvement",
@@ -477,7 +493,10 @@ if (currentStep === -2) {
           <h1>{currentQuestion.question}</h1>
 
           {currentQuestion.type === "rating" && (
-            <p>Desde muy mala a hasta exelente.</p>
+            <p>
+    Desde {currentQuestion.minLabel.toLowerCase()} hasta{" "}
+    {currentQuestion.maxLabel.toLowerCase()}.
+  </p>
           )}
           {currentQuestion.type === "text" && (
             <p>Cuéntanos tu experiencia o sugerencias (opcional)</p>
@@ -509,9 +528,9 @@ if (currentStep === -2) {
     </div>
 
     <div className="rating-scale">
-      <span>Muy mala</span>
-      <span>Excelente</span>
-    </div>
+  <span>{currentQuestion.minLabel}</span>
+  <span>{currentQuestion.maxLabel}</span>
+</div>
   </div>
 )}
 
