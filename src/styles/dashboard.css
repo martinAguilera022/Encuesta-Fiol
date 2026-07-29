@@ -916,9 +916,12 @@
 }
 
 .comment-section.improvement {
-	background: #fff2e8;
+	background: #ff000069;
 }
 
+.comment-section.valued {
+	background: #99ff5c;
+}
 .comment-title {
 	display: flex;
 	align-items: center;

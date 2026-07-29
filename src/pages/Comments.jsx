@@ -327,21 +327,22 @@ return (
                         </strong>
 
 
-                        <span>
+                       <span>
+  {response.createdAt?.toDate
+    ? response.createdAt
+        .toDate()
+        .toLocaleString("es-AR", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+    : "-"
+  }
+</span>
+                         
 
-                          {response.createdAt?.toDate
-
-                            ? response.createdAt
-                                .toDate()
-                                .toLocaleDateString(
-                                  "es-AR"
-                                )
-
-                            : "-"
-
-                          }
-
-                        </span>
 
                       </div>
 
