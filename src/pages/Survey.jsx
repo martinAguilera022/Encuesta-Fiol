@@ -366,7 +366,7 @@ if (currentStep === -2) {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="survey-container"
+          
         >
 
         <div className="survey-question-header">
