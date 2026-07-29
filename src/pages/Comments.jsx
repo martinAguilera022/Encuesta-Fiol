@@ -95,64 +95,53 @@ function Comments() {
   // ==========================================
   // FILTRAR COMENTARIOS
   // ==========================================
+const filteredResponses = responses.filter((response) => {
 
-  const filteredResponses = responses.filter(
-    (response) => {
+  const mostValued = response.mostValued?.trim() || "";
+  const improvement = response.improvement?.trim() || "";
+  const companyName = response.companyName?.toLowerCase() || "";
 
+  // Mostrar solamente clientes con comentarios
+  const hasComment =
+    mostValued.length > 0 ||
+    improvement.length > 0;
 
-      // Buscar texto
-
-      const searchText = search.toLowerCase();
-
-
-      const matchesSearch =
-
-        response.mostValued
-          ?.toLowerCase()
-          .includes(searchText)
-
-        ||
-
-        response.improvement
-          ?.toLowerCase()
-          .includes(searchText)
-
-        ||
-
-        response.companyName
-          ?.toLowerCase()
-          .includes(searchText);
+  if (!hasComment) {
+    return false;
+  }
 
 
-      // Filtro
-
-      if (filter === "valued") {
-
-        return (
-          response.mostValued &&
-          matchesSearch
-        );
-
-      }
+  const searchText = search.toLowerCase();
 
 
-      if (filter === "improvement") {
-
-        return (
-          response.improvement &&
-          matchesSearch
-        );
-
-      }
+  const matchesSearch =
+    mostValued.toLowerCase().includes(searchText) ||
+    improvement.toLowerCase().includes(searchText) ||
+    companyName.includes(searchText);
 
 
-      return matchesSearch;
+  if (!matchesSearch) {
+    return false;
+  }
 
-    }
-  );
+
+  if (filter === "valued") {
+    return mostValued.length > 0;
+  }
 
 
-  return (
+  if (filter === "improvement") {
+    return improvement.length > 0;
+  }
+
+
+  return true;
+
+});
+return (
+  
+
+
 
     <div className="dashboard">
 
@@ -211,7 +200,9 @@ function Comments() {
         {/* ====================================== */}
         {/* FILTROS */}
         {/* ====================================== */}
-
+<p>
+  {filteredResponses.length} clientes dejaron comentarios.
+</p>
         <div className="comments-filters">
 
 
@@ -363,7 +354,7 @@ function Comments() {
 
                   {/* LO QUE VALORA */}
 
-                  {response.mostValued && (
+                  {response.mostValued?.trim() && (
 
                     <div className="comment-section valued">
 
@@ -398,8 +389,7 @@ function Comments() {
 
 
                   {/* MEJORA */}
-
-                  {response.improvement && (
+{response.improvement?.trim() && (
 
                     <div className="comment-section improvement">
 

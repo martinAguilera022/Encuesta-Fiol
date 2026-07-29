@@ -69,7 +69,9 @@ function Responses() {
   const [responses, setResponses] = useState([]);
 
   const [loading, setLoading] = useState(true);
+const ITEMS_PER_PAGE = 7;
 
+const [currentPage, setCurrentPage] = useState(1);
   // Mostrar u ocultar menú de filtros
   const [showFilters, setShowFilters] = useState(false);
 
@@ -162,20 +164,28 @@ function Responses() {
     return true;
 
   });
+  const totalPages = Math.ceil(
+  filteredResponses.length / ITEMS_PER_PAGE
+);
+
+const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+const endIndex = startIndex + ITEMS_PER_PAGE;
+
+const paginatedResponses = filteredResponses.slice(
+  startIndex,
+  endIndex
+);
 
 
   // ==================================================
   // CAMBIAR FILTRO
   // ==================================================
 
-  const handleFilterChange = (newFilter) => {
-
-    setFilter(newFilter);
-
-    // Cerrar menú después de seleccionar
-    setShowFilters(false);
-
-  };
+const handleFilterChange = (newFilter) => {
+  setFilter(newFilter);
+  setCurrentPage(1);
+  setShowFilters(false);
+};
 
 
   return (
@@ -392,7 +402,7 @@ function Responses() {
           {/* ========================================== */}
 
           {!loading &&
-            filteredResponses.map(
+          paginatedResponses.map(
               (response, index) => (
 
                 <div
@@ -403,9 +413,9 @@ function Responses() {
 
                   {/* NÚMERO */}
 
-                  <span>
-                    {index + 1}
-                  </span>
+                 <span>
+  {startIndex + index + 1}
+</span>
 
 
                   {/* EMPRESA */}
@@ -519,41 +529,45 @@ function Responses() {
         <div className="pagination">
 
           <span>
-
-            Mostrando{" "}
-            {filteredResponses.length} de{" "}
-            {responses.length} respuestas
-
+Mostrando{" "}
+{filteredResponses.length === 0
+  ? 0
+  : startIndex + 1}
+-
+{Math.min(endIndex, filteredResponses.length)} de{" "}
+{filteredResponses.length} respuestas
           </span>
 
 
           <div className="pagination-buttons">
 
-            <button disabled>
-              ‹ Anterior
-            </button>
+  <button
+    disabled={currentPage === 1}
+    onClick={() => setCurrentPage((p) => p - 1)}
+  >
+    ‹ Anterior
+  </button>
 
-            <button className="selected">
-              1
-            </button>
+  {Array.from({ length: totalPages }).map((_, index) => (
+    <button
+      key={index}
+      className={
+        currentPage === index + 1 ? "selected" : ""
+      }
+      onClick={() => setCurrentPage(index + 1)}
+    >
+      {index + 1}
+    </button>
+  ))}
 
-            <button>
-              2
-            </button>
+  <button
+    disabled={currentPage === totalPages || totalPages === 0}
+    onClick={() => setCurrentPage((p) => p + 1)}
+  >
+    Siguiente ›
+  </button>
 
-            <button>
-              3
-            </button>
-
-            <button>
-              4
-            </button>
-
-            <button>
-              Siguiente ›
-            </button>
-
-          </div>
+</div>
 
         </div>
 

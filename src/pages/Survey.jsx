@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaUserSecret, FaUser, FaRegClock } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   db,
   collection,
@@ -108,14 +109,35 @@ const ratingOptions = [
 
   },
 ];
-
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    x: 60,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.35,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    opacity: 0,
+    x: -60,
+    transition: {
+      duration: 0.25,
+      ease: "easeIn",
+    },
+  },
+};
 function Survey() {
   const navigate = useNavigate();
 
   const [currentStep, setCurrentStep] = useState(-1);
   const [identityType, setIdentityType] = useState(null);
   const [companyName, setCompanyName] = useState("");
-
+const [isSubmitting, setIsSubmitting] = useState(false);
   const [answers, setAnswers] = useState({
   commercialAttention: null,
   deliveryTimes: null,
@@ -205,8 +227,11 @@ const handleNext = async () => {
     if (currentStep < questions.length - 1) {
   setCurrentStep((prev) => prev + 1);
 } else {
-  await saveSurvey();
-  navigate("/gracias");
+ setIsSubmitting(true);
+
+await saveSurvey();
+
+navigate("/gracias");
 }
   };
 
@@ -218,11 +243,43 @@ const handleNext = async () => {
       setCurrentStep(-2);
     }
   };
+if (isSubmitting) {
+  return (
+    <main className="survey-screen">
+      <div className="loading-screen">
+        <img
+          src={logoFiol}
+          alt="Embragues Fiol"
+          className="loading-logo"
+        />
 
+        <div className="loading-spinner" />
+
+        <h2>Enviando respuestas...</h2>
+
+        <p>
+          Estamos guardando tu encuesta.
+          <br />
+          Esto tomará solo unos segundos.
+        </p>
+      </div>
+    </main>
+  );
+}
   if (currentStep === -1) {
     return (
      
 <main className="survey-screen">
+  <AnimatePresence mode="wait">
+
+        <motion.section
+            key="welcome"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="survey-welcome"
+        >
     <section className="survey-welcome">
 
         {/* Imagen inferior */}
@@ -241,6 +298,7 @@ const handleNext = async () => {
                 src={logoFiol}
                 alt="Embragues Fiol"
                 className="brand-logo"
+                id="brand"
             />
 
             <div className="survey-header">
@@ -282,6 +340,8 @@ const handleNext = async () => {
         </div>
 
     </section>
+       </motion.section>
+    </AnimatePresence>
 </main>
     );
   }
@@ -298,6 +358,16 @@ if (currentStep === -2) {
           total={questions.length}
           currentStep={currentStep}
         />
+<AnimatePresence mode="wait">
+
+        <motion.div
+            key="identity"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="survey-container"
+        >
 
         <div className="survey-question-header">
           <h1>
@@ -363,16 +433,22 @@ if (currentStep === -2) {
           <input
             className="company-input"
             type="text"
-            placeholder="Nombre de tu empresa"
+            placeholder="Nombre de tu empresa o negocio"
             value={companyName}
             onChange={(event) => setCompanyName(event.target.value)}
           />
         )}
+</motion.div>
 
+</AnimatePresence>
         <SurveyNavigation
           onNext={handleNext}
           showBack={false}
-          disabled={!identityType}
+          
+           disabled={
+    !identityType ||
+    (identityType === "company" && companyName.trim() === "")
+  }
         />
       </div>
     </main>
@@ -387,7 +463,16 @@ if (currentStep === -2) {
   current={currentStep + 2}
   total={questions.length }
 />
+<AnimatePresence mode="wait">
 
+        <motion.div
+            key={currentStep}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="survey-container"
+        >
         <div className="survey-question-header">
           <h1>{currentQuestion.question}</h1>
 
@@ -458,7 +543,11 @@ if (currentStep === -2) {
     )
   }
 />
+    </motion.div>
+</AnimatePresence>
       </div>
+  
+    
     </main>
   );
 }
@@ -470,6 +559,7 @@ function SurveyTopBar() {
                 src={logoFiol}
                 alt="Embragues Fiol"
                 className="brand-logo"
+                id="brand"
             />
     </div>
   );
