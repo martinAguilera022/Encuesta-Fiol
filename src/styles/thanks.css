@@ -236,7 +236,7 @@
    DESKTOP - IMAGEN A LA DERECHA
 ========================================= */
 
-@media (min-width: 1200px) {
+@media (min-width: 900px) and (orientation: landscape) {
 	.thanks-screen {
 		position: relative;
 
