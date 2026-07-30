@@ -559,8 +559,11 @@
 
 @media (max-width: 360px) {
 	.survey-content {
-		padding-right: 16px;
-		padding-left: 16px;
+		padding-right: 60px;
+		padding-left: 60px;
+
+		padding: max(20px, env(safe-area-inset-top)) 22px
+			max(70px, env(safe-area-inset-bottom));
 	}
 
 	.survey-content .brand-logo {
@@ -660,7 +663,13 @@
 		font-size: 16px;
 	}
 }
-
+/* Teléfonos angostos y altos */
+/* Eleva el botón según la altura del teléfono */
+@media (max-width: 767px) {
+	.survey-footer {
+		padding-bottom: clamp(0px, calc(18dvh - 86px), 64px);
+	}
+}
 /* =========================================
    NOTEBOOK / DESKTOP LANDSCAPE
 ========================================= */
