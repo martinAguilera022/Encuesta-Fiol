@@ -1,34 +1,30 @@
 /* =========================================
    THANKS SCREEN
 ========================================= */
-
 .thanks-screen {
 	position: relative;
-
 	width: 100%;
-	height: 100dvh;
-
+	min-height: 100vh;
 	overflow: hidden;
-
+	background: #000;
 	color: #fff;
 }
-
 /* =========================================
    CONTENT
 ========================================= */
 
 .thanks-content {
 	position: relative;
-
 	z-index: 2;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 
-	height: 100%;
+	width: 100%;
+	min-height: 100vh;
 
-	padding: 20% 28px 0;
+	padding: clamp(40px, 10vh, 100px) clamp(18px, 6vw, 28px) 180px;
 
 	text-align: center;
 }
@@ -36,64 +32,56 @@
 /* =========================================
    CHECK ICON
 ========================================= */
-
 .thanks-icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-shrink: 0;
 
-	width: 140px;
-	height: 140px;
+	width: clamp(95px, 28vw, 140px);
+	height: clamp(95px, 28vw, 140px);
 
-	margin-bottom: 25px;
+	margin-bottom: clamp(18px, 4vh, 25px);
 
-	border: 7px solid #ffd400;
+	border: clamp(5px, 1.5vw, 7px) solid #ffd400;
 	border-radius: 50%;
 }
 
 .checkmark {
-	width: 65px;
-	height: 35px;
+	width: clamp(44px, 13vw, 65px);
+	height: clamp(24px, 7vw, 35px);
 
-	border-left: 8px solid #ffd400;
-	border-bottom: 8px solid #ffd400;
+	border-left: clamp(6px, 1.7vw, 8px) solid #ffd400;
+	border-bottom: clamp(6px, 1.7vw, 8px) solid #ffd400;
 
 	transform: rotate(-45deg);
 }
-
 /* =========================================
    TITLE
 ========================================= */
-
 .thanks-content h1 {
+	max-width: 100%;
 	margin: 0;
 
-	font-size: 40px;
+	font-size: clamp(30px, 9vw, 40px);
 	line-height: 1.05;
 	font-weight: 700;
 }
 
 .thanks-content h1 span {
 	display: block;
-
 	color: #ffd400;
 }
 
-/* =========================================
-   DESCRIPTION
-========================================= */
-
 .thanks-content p {
-	width: 300px;
-
-	margin-top: 36px;
+	width: min(100%, 300px);
+	margin: clamp(18px, 4vh, 36px) 0 0;
 
 	color: #a09e9e;
 
-	font-size: 22px;
+	font-size: clamp(14px, 4.5vw, 20px);
 	line-height: 1.4;
 }
-
 /* =========================================
    IMAGE
 ========================================= */
@@ -180,17 +168,13 @@
 /* =========================================
    LOGO
 ========================================= */
-
 .thanks-logo {
 	position: absolute;
-
 	left: 50%;
-	bottom: 40px;
-
+	bottom: clamp(18px, 5vh, 40px);
 	z-index: 3;
 
-	width: 170px;
-
+	width: clamp(130px, 42vw, 170px);
 	padding: 4px 8px;
 
 	transform: translateX(-50%);
@@ -205,27 +189,22 @@
 /* =========================================
    EXIT BUTTON
 ========================================= */
-
 .thanks-exit-button {
-	width: 180px;
-	height: 50px;
-	margin-top: 35px;
+	width: min(180px, 100%);
+	height: clamp(46px, 7vh, 50px);
+
+	margin-top: clamp(20px, 5vh, 35px);
 
 	border: 1px solid #444;
 	border-radius: 10px;
 
 	background: #fff;
-	color: #000000;
+	color: #000;
 
-	font-size: 16px;
+	font-size: clamp(14px, 4vw, 16px);
 	font-weight: 600;
 
 	cursor: pointer;
-
-	transition:
-		background 0.25s ease,
-		border-color 0.25s ease,
-		transform 0.2s ease;
 }
 
 .thanks-exit-button:hover {
@@ -364,4 +343,42 @@
 	/* =========================================
 	   LOGO
 	========================================= */
+}
+@media (max-width: 767px) and (max-height: 700px) {
+	.thanks-content {
+		padding-top: 28px;
+		padding-bottom: 140px;
+	}
+
+	.thanks-icon {
+		width: 88px;
+		height: 88px;
+		margin-bottom: 14px;
+		border-width: 5px;
+	}
+
+	.checkmark {
+		width: 40px;
+		height: 22px;
+		border-width: 0 0 6px 6px;
+	}
+
+	.thanks-content h1 {
+		font-size: clamp(27px, 8vw, 34px);
+	}
+
+	.thanks-content p {
+		margin-top: 12px;
+		font-size: 14px;
+	}
+
+	.thanks-exit-button {
+		height: 44px;
+		margin-top: 16px;
+	}
+
+	.thanks-logo {
+		bottom: 14px;
+		width: 130px;
+	}
 }
