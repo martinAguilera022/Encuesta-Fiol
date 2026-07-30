@@ -336,9 +336,13 @@
 		pointer-events: none;
 	}
 	.thanks-logo {
-		width: 300px;
+		left: 50%;
+		right: auto;
+		bottom: 30px;
 
-		transform: translateX(26%);
+		width: clamp(190px, 24vw, 300px);
+
+		transform: translateX(-50%);
 	}
 	/* =========================================
 	   LOGO
