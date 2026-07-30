@@ -525,7 +525,7 @@
 		margin: 0;
 	}
 }
-@media (min-width: 1200px) and (orientation: landscape) and (hover: hover) and (pointer: fine) {
+@media (min-width: 900px) and (orientation: landscape) {
 	/* =========================================
 	   PANTALLA COMPLETA
 	========================================= */
