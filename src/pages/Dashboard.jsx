@@ -61,13 +61,14 @@ const ratingQuestions = [
     name: "Resolución de reclamos",
   },
   {
-    field: "overallExperience",
-    name: "Experiencia completa con Embragues Fiol",
-  },
-  {
     field: "repurchaseProbability",
     name: "Probabilidad de volver a elegirnos",
   },
+  {
+    field: "overallExperience",
+    name: "Experiencia completa con Embragues Fiol",
+  }
+  
 ];
 
 
