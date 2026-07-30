@@ -282,85 +282,68 @@ if (isSubmitting) {
     </main>
   );
 }
-  if (currentStep === -1) {
-    return (
-     
-<main className="survey-screen">
-  <AnimatePresence mode="wait">
+ if (currentStep === -1) {
+	return (
+		<main className="survey-screen">
+			<motion.section
+				key="welcome"
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				exit={{ opacity: 0 }}
+				transition={{ duration: 0.3 }}
+				className="survey-welcome"
+			>
+				<img
+					src={fondoEmbrague}
+					alt=""
+					className="background-clutch"
+				/>
 
-        <motion.section
-            key="welcome"
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="survey-welcome"
-        >
-    <section className="survey-welcome">
+				<div className="background-overlay" />
 
-        {/* Imagen inferior */}
-        <img
-            src={fondoEmbrague}
-            alt=""
-            className="background-clutch"
-        />
+				<div className="survey-content">
+					<img
+						src={logoFiol}
+						alt="Embragues Fiol"
+						className="brand-logo"
+						id="brand"
+					/>
 
-        {/* Degradado */}
-        <div className="background-overlay" />
+					<div className="survey-header">
+						<h1>
+							Tu opinión
+							<span>nos impulsa</span>
+						</h1>
 
-        <div className="survey-content">
+						<p className="survey-description">
+							Tu opinión nos ayuda a seguir mejorando cada día para
+							brindarte el mejor servicio.
+						</p>
+					</div>
 
-            <img
-                src={logoFiol}
-                alt="Embragues Fiol"
-                className="brand-logo"
-                id="brand"
-            />
+					<div className="survey-footer">
+						<div className="survey-time">
+							<FaRegClock />
 
-            <div className="survey-header">
+							<span>
+								La encuesta toma menos de
+								<br />
+								<strong>1 minuto.</strong>
+							</span>
+						</div>
 
-                <h1>
-                    Tu opinión
-                    <span>nos impulsa</span>
-                </h1>
-
-                <p className="survey-description">
-                    Tu opinión nos ayuda a seguir mejorando cada día para
-                    brindarte el mejor servicio.
-                </p>
-
-            </div>
-
-            <div className="survey-footer">
-
-                <div className="survey-time">
-                    <FaRegClock />
-
-                    <span>
-                        La encuesta toma menos de
-                        <br />
-                        <strong>1 minuto.</strong>
-                    </span>
-
-                </div>
-
-                <button
-                    className="primary-button"
-                    onClick={handleStart}
-                >
-                    Comenzar encuesta.
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-       </motion.section>
-    </AnimatePresence>
-</main>
-    );
-  }
+						<button
+							className="primary-button"
+							onClick={handleStart}
+						>
+							Comenzar encuesta.
+						</button>
+					</div>
+				</div>
+			</motion.section>
+		</main>
+	);
+}
 if (currentStep === -2) {
   return (
     <main className="survey-screen survey-questions-screen">
